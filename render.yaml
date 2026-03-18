@@ -4,15 +4,18 @@ services:
     runtime: docker
     plan: starter
     healthCheckPath: /health
+    dockerCommand: node dist/index.js gateway --allow-unconfigured --bind lan --port 8080
     envVars:
       - key: PORT
         value: "8080"
       - key: SETUP_PASSWORD
         sync: false
+      - key: OPENCLAW_HOME
+        value: /data
       - key: OPENCLAW_STATE_DIR
         value: /data/.openclaw
       - key: OPENCLAW_WORKSPACE_DIR
-        value: /data/workspace
+        value: /data/.openclaw/workspace
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
     disk:
