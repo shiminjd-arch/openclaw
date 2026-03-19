@@ -52,6 +52,7 @@ async function writeConfigPatch() {
       controlUi: {
         ...controlUi,
         dangerouslyAllowHostHeaderOriginFallback: true,
+        dangerouslyDisableDeviceAuth: true,
       },
     },
   };
